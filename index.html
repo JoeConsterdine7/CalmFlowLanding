@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calm Flow - Understand Your Triggers</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter",
+          sans-serif;
+        color: #2f3e46;
+        line-height: 1.6;
+        background: #f8f9fa;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(180deg, #eaf4f4 0%, #f8f9fa 100%);
+        padding: 120px 20px 80px;
+        text-align: center;
+      }
+
+      .brand-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #6b9080;
+        margin-bottom: 30px;
+        letter-spacing: 0.5px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #2f3e46;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        color: #52796f;
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: #6b9080;
+        color: white;
+        padding: 16px 48px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 10px;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(107, 144, 128, 0.25);
+        transition: all 0.2s ease;
+      }
+
+      .cta-button:hover {
+        background: #52796f;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(107, 144, 128, 0.3);
+      }
+
+      .social-proof {
+        margin-top: 30px;
+        font-size: 0.95rem;
+        color: #a4c3b2;
+      }
+
+      /* Problem Section */
+      .problem-section {
+        background: white;
+        padding: 80px 20px;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #2f3e46;
+        margin-bottom: 50px;
+      }
+
+      .problems {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .problem-card {
+        background: #f8f9fa;
+        border: 1px solid #cad2c5;
+        border-radius: 12px;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .problem-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+      }
+
+      .problem-card p {
+        font-size: 1.1rem;
+        color: #2f3e46;
+        line-height: 1.5;
+      }
+
+      /* Solution Section */
+      .solution-section {
+        background: #eaf4f4;
+        padding: 100px 20px;
+      }
+
+      .solution-content {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .screenshot-container {
+        text-align: center;
+      }
+
+      .screenshot-placeholder {
+        background: white;
+        border: 2px solid #cad2c5;
+        border-radius: 20px;
+        padding: 40px 20px;
+        box-shadow: 0 8px 24px rgba(107, 144, 128, 0.2);
+        max-width: 350px;
+        margin: 0 auto;
+      }
+
+      .screenshot-placeholder p {
+        color: #52796f;
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+
+      .screenshot-placeholder img {
+        max-width: 100%;
+      }
+
+      .phone-mockup {
+        width: 200px;
+        height: 400px;
+        background: linear-gradient(135deg, #84a98c 0%, #6b9080 100%);
+        border-radius: 30px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.9rem;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .screenshot-caption {
+        margin-top: 15px;
+        font-size: 0.85rem;
+        color: #a4c3b2;
+        font-style: italic;
+      }
+
+      .features h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2f3e46;
+        margin-bottom: 30px;
+      }
+
+      .feature {
+        margin-bottom: 30px;
+      }
+
+      .feature-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+
+      .feature-icon {
+        font-size: 1.8rem;
+      }
+
+      .feature-title {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #2f3e46;
+      }
+
+      .feature-description {
+        font-size: 0.95rem;
+        color: #52796f;
+        margin-left: 48px;
+      }
+
+      /* Form Section */
+      .form-section {
+        background: white;
+        padding: 120px 20px;
+        border-top: 3px solid #84a98c;
+      }
+
+      .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .form-container h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2f3e46;
+        margin-bottom: 20px;
+      }
+
+      .form-container .subtitle {
+        font-size: 1.1rem;
+        color: #52796f;
+        margin-bottom: 40px;
+      }
+
+      .form-box {
+        background: #f8f9fa;
+        border: 2px solid #cad2c5;
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 4px 12px rgba(107, 144, 128, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 1rem;
+        border: 1px solid #cad2c5;
+        border-radius: 8px;
+        background: white;
+        color: #2f3e46;
+        transition: border 0.2s ease;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border: 2px solid #6b9080;
+      }
+
+      .form-group input::placeholder {
+        color: #a4c3b2;
+      }
+
+      .submit-button {
+        width: 100%;
+        background: #6b9080;
+        color: white;
+        padding: 16px 32px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(107, 144, 128, 0.2);
+        transition: all 0.2s ease;
+      }
+
+      .submit-button:hover {
+        background: #52796f;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(107, 144, 128, 0.3);
+      }
+
+      .form-fine-print {
+        margin-top: 20px;
+        font-size: 0.85rem;
+        color: #a4c3b2;
+      }
+
+      /* Footer */
+      .footer {
+        background: #eaf4f4;
+        padding: 40px 20px;
+        text-align: center;
+        color: #52796f;
+        font-size: 0.95rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .solution-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .form-box {
+          padding: 30px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="brand-name">Calm Flow</div>
+        <h1>Finally understand what triggers your IBS</h1>
+        <p>
+          Track symptoms, meals, and stress in seconds. Get personalized
+          insights to take control of your gut health.
+        </p>
+        <a href="#waitlist" class="cta-button">Join the Waitlist</a>
+        <p class="social-proof">Join 50+ people on the waitlist</p>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+      <div class="container">
+        <h2 class="section-title">Sound familiar?</h2>
+        <div class="problems">
+          <div class="problem-card">
+            <div class="problem-icon">🤔</div>
+            <p>Never sure what foods are safe to eat</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">📊</div>
+            <p>Can't spot patterns in your symptoms</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">😰</div>
+            <p>Stress makes it worse — but when exactly?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+      <div class="container">
+        <div class="solution-content">
+          <div class="screenshot-container">
+            <div class="screenshot-placeholder">
+              <img src="insights.png" alt="insights screenshot" />
+            </div>
+            <p class="screenshot-caption">Early preview - design in progress</p>
+          </div>
+
+          <div class="features">
+            <h2>Track everything in one place</h2>
+
+            <div class="feature">
+              <div class="feature-header">
+                <span class="feature-icon">⚡</span>
+                <span class="feature-title"
+                  >Log meals & symptoms in 30 seconds</span
+                >
+              </div>
+              <p class="feature-description">
+                Quick tap interface, minimal typing required
+              </p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-header">
+                <span class="feature-icon">🧠</span>
+                <span class="feature-title"
+                  >Identifies your personal triggers</span
+                >
+              </div>
+              <p class="feature-description">
+                Automatically spots patterns you'd miss
+              </p>
+            </div>
+
+            <div class="feature">
+              <div class="feature-header">
+                <span class="feature-icon">📈</span>
+                <span class="feature-title"
+                  >Reports you can share with your doctor</span
+                >
+              </div>
+              <p class="feature-description">Export for appointments</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="waitlist">
+      <div class="container">
+        <div class="form-container">
+          <h2>Be the first to try it</h2>
+          <p class="subtitle">
+            Join the waitlist for early access. Launching November 2025.
+          </p>
+
+          <div class="form-box">
+            <form>
+              <div class="form-group">
+                <input type="text" placeholder="First name (optional)" />
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="your@email.com" required />
+              </div>
+              <button type="submit" class="submit-button">
+                Get Early Access
+              </button>
+            </form>
+            <p class="form-fine-print">No spam ever. Unsubscribe anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>Built by Joe Consterdine | info@calmflow.app</p>
+      </div>
+    </footer>
+  </body>
+</html>
